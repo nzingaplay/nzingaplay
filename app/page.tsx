@@ -119,7 +119,79 @@ export default function NzingaPlay() {
         )}
 
         <div className="flex-1">
-          {/* o conteúdo principal permanece igual */}
+          {showLogin && (
+            <div className="bg-yellow-900 p-6 rounded max-w-md mx-auto mb-6">
+              <h2 className="text-2xl font-bold mb-4">Login</h2>
+              {showAuthAlert && <p className="text-red-300 mb-2">Tens que criar uma conta ou fazer login para assistir ao filme.</p>}
+              <button onClick={handleGoogleLogin} className="bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-300 w-full">Entrar com Google</button>
+            </div>
+          )}
+
+          {activeSection === 'home' && (
+            <section className="text-center mb-8">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+                <h2 className="text-4xl font-bold mb-2">ORIGINAIS DA LUSOFONIA</h2>
+                <p className="text-yellow-300 text-lg">Plataforma gratuita até 25 de Dezembro de 2025</p>
+                {isLoggedIn && (
+                  <button className="mt-4 bg-yellow-400 text-black px-6 py-2 rounded hover:bg-yellow-300" onClick={handlePlayClick}>Ver Filme</button>
+                )}
+              </motion.div>
+
+              <div className="mt-6">
+                <h3 className="text-2xl font-semibold mb-4">Filmes Angolanos</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="bg-yellow-900 rounded overflow-hidden cursor-pointer" onClick={handlePlayClick}>
+                    <div className="aspect-video bg-black flex items-center justify-center">
+                      <Play className="w-8 h-8 text-yellow-400" />
+                    </div>
+                    <p className="p-2 font-semibold text-yellow-300">Nzinga - A Rainha Guerreia</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {showPlayer && (
+            <div className="bg-yellow-900 p-6 rounded max-w-3xl mx-auto mt-10">
+              <h2 className="text-2xl font-bold mb-4">A JAMAIKANA</h2>
+              <div className="aspect-video bg-black mb-4 flex items-center justify-center">
+                <iframe className="w-full h-full" src="https://www.youtube.com/embed/bbYewQX9kBE" title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
+              </div>
+              <p className="mb-4 text-yellow-300">Realizado por Khristall Afrika<br />Produção de Yannick Matos e Leandro Priston<br />Técnica: Boy Gui.<br />Ano 2021</p>
+              <button className="bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-300" onClick={() => setShowPlayer(false)}>Fechar</button>
+            </div>
+          )}
+
+          {activeSection === 'contactos' && (
+            <div className="bg-yellow-900 p-6 rounded max-w-md mx-auto text-center">
+              <h2 className="text-2xl font-bold mb-4">Contactos</h2>
+              <p className="mb-2">WhatsApp: <a href="https://wa.me/244931291602" className="underline text-yellow-300" target="_blank">+244 931 291 602</a></p>
+              <p>Email: <a href="mailto:nzingaplay@gmail.com" className="underline text-yellow-300">nzingaplay@gmail.com</a></p>
+            </div>
+          )}
+
+          {activeSection === 'ajuda' && (
+            <div className="bg-yellow-900 p-6 rounded max-w-md mx-auto text-center">
+              <h2 className="text-2xl font-bold mb-4">Ajuda</h2>
+              <p className="text-yellow-300">Se estiveres com dúvidas ou dificuldades, entra em contacto connosco pela nossa secção de <strong>Contactos</strong>.</p>
+            </div>
+          )}
+
+          {activeSection === 'categoria' && selectedCategory && (
+            <div className="bg-yellow-900 p-6 rounded max-w-5xl mx-auto text-center">
+              <h2 className="text-2xl font-bold mb-4">Categoria: {selectedCategory}</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {Array.from({ length: 8 }).map((_, idx) => (
+                  <div key={idx} className="bg-yellow-800 p-2 rounded">
+                    <div className="aspect-video bg-black flex items-center justify-center">
+                      <Play className="w-6 h-6 text-yellow-400" />
+                    </div>
+                    <p className="mt-2 text-sm">Filme #{idx + 1}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </main>
 
