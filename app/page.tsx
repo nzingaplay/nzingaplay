@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Play } from 'lucide-react';
+import { Play, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
@@ -23,6 +23,8 @@ export default function NzingaPlay() {
   const [showPlayer, setShowPlayer] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showAuthAlert, setShowAuthAlert] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
@@ -41,6 +43,7 @@ export default function NzingaPlay() {
     setShowLogin(false);
     setShowPlayer(false);
     setShowAuthAlert(false);
+    setSelectedCategory('');
   };
 
   const handlePlayClick = () => {
@@ -80,14 +83,18 @@ export default function NzingaPlay() {
       <main className="p-6 flex flex-col md:flex-row">
         {isLoggedIn && (
           <aside className="md:w-48 md:mr-6 mb-6 md:mb-0">
-            <h3 className="text-lg font-bold mb-2">Categorias</h3>
-            <ul className="space-y-2 text-sm">
-              {categories.map((cat, idx) => (
-                <li key={idx}>
-                  <button className="hover:underline text-left w-full text-sm">{cat}</button>
-                </li>
-              ))}
-            </ul>
+            <button onClick={() => setShowCategories(!showCategories)} className="flex items-center justify-between w-full text-sm bg-yellow-700 px-2 py-1 rounded hover:bg-yellow-600">
+              Categorias <ChevronDown className="w-4 h-4 ml-1" />
+            </button>
+            {showCategories && (
+              <ul className="space-y-2 mt-2 text-sm">
+                {categories.map((cat, idx) => (
+                  <li key={idx}>
+                    <button onClick={() => { setSelectedCategory(cat); setActiveSection('categoria'); }} className="hover:underline text-left w-full text-sm">{cat}</button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </aside>
         )}
 
@@ -141,6 +148,22 @@ export default function NzingaPlay() {
                 </div>
               )}
             </>
+          )}
+
+          {activeSection === 'categoria' && selectedCategory && (
+            <div className="text-center">
+              <h2 className="text-3xl font-bold mb-4">{selectedCategory}</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {Array.from({ length: 8 }).map((_, idx) => (
+                  <div key={idx} className="bg-yellow-900 rounded overflow-hidden cursor-pointer" onClick={handlePlayClick}>
+                    <div className="aspect-video bg-black flex items-center justify-center">
+                      <Play className="w-8 h-8 text-yellow-400" />
+                    </div>
+                    <p className="p-2 font-semibold text-yellow-300">{selectedCategory} #{idx + 1}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
 
           {activeSection === 'contactos' && (
