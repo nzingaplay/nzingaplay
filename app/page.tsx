@@ -58,14 +58,14 @@ export default function NzingaPlay() {
 
   return (
     <div className="min-h-screen bg-black text-yellow-400" style={{ fontFamily: 'Comic Sans MS, Comic Sans, cursive' }}>
-      <header className="p-4 flex flex-col md:flex-row justify-between items-center border-b border-yellow-600">
-        <h1 className="text-3xl font-bold mb-2 md:mb-0">NZINGAPLAY</h1>
-        <nav className="space-x-4 mb-2 md:mb-0">
+      <header className="p-4 flex flex-col md:flex-row md:justify-between md:items-center border-b border-yellow-600 space-y-2 md:space-y-0">
+        <h1 className="text-3xl font-bold">NZINGAPLAY</h1>
+        <nav className="flex space-x-4">
           <button className="hover:underline" onClick={() => handleNav('home')}>Página Inicial</button>
           <button className="hover:underline" onClick={() => handleNav('contactos')}>Contactos</button>
           <button className="hover:underline" onClick={() => handleNav('ajuda')}>Ajuda</button>
         </nav>
-        <div className="space-x-4">
+        <div className="flex space-x-4">
           {!isLoggedIn ? (
             <>
               <button className="text-yellow-400" onClick={() => setShowLogin(true)}>Entrar</button>
@@ -77,9 +77,9 @@ export default function NzingaPlay() {
         </div>
       </header>
 
-      <main className="p-6 flex">
+      <main className="p-6 flex flex-col md:flex-row">
         {isLoggedIn && (
-          <aside className="w-48 mr-6">
+          <aside className="md:w-48 md:mr-6 mb-6 md:mb-0">
             <h3 className="text-lg font-bold mb-2">Categorias</h3>
             <ul className="space-y-2 text-sm">
               {categories.map((cat, idx) => (
