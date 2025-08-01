@@ -144,7 +144,7 @@ export default function NzingaPlay() {
                     <div className="aspect-video bg-black flex items-center justify-center">
                       <Play className="w-8 h-8 text-yellow-400" />
                     </div>
-                    <p className="p-2 font-semibold text-yellow-300">Nzinga - A Rainha Guerreia</p>
+                    <p className="p-2 font-semibold text-yellow-300">A Jamaikana</p>
                   </div>
                 </div>
               </div>
