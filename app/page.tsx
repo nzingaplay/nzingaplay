@@ -11,7 +11,7 @@ export default function NzingaPlay() {
   const [activeSection, setActiveSection] = useState('home');
   const [showAuthAlert, setShowAuthAlert] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoggedIn(true);
     setShowLogin(false);
