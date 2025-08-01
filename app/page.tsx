@@ -21,7 +21,6 @@ export default function NzingaPlay() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
-  const [showCheckout, setShowCheckout] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showAuthAlert, setShowAuthAlert] = useState(false);
 
@@ -41,7 +40,6 @@ export default function NzingaPlay() {
     setActiveSection(section);
     setShowLogin(false);
     setShowPlayer(false);
-    setShowCheckout(false);
     setShowAuthAlert(false);
   };
 
@@ -87,7 +85,7 @@ export default function NzingaPlay() {
             <ul className="space-y-2 text-sm">
               {categories.map((cat, idx) => (
                 <li key={idx}>
-                  <button className="hover:underline text-left w-full">{cat}</button>
+                  <button className="hover:underline text-left w-full text-sm">{cat}</button>
                 </li>
               ))}
             </ul>
