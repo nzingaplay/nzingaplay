@@ -1,4 +1,4 @@
-'use client';
+~'use client';
 import React, { useState } from 'react';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -107,7 +107,7 @@ export default function NzingaPlay() {
             <>
               <section className="text-center mb-8">
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-                  <h2 className="text-4xl font-bold mb-2">Filmes Originais de Angola e da Lusofonia</h2>
+                  <h2 className="text-4xl font-bold mb-2">ORIGINAIS DA LUSOFONIA</h2>
                   <p className="text-yellow-300 text-lg">Plataforma gratuita até 25 de Dezembro de 2025</p>
                 </motion.div>
               </section>
