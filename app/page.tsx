@@ -91,7 +91,7 @@ export default function NzingaPlay() {
             <section className="text-center mb-8">
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
                 <h2 className="text-4xl font-bold mb-2">Filmes Originais de Angola e da Lusofonia</h2>
-                <p className="text-yellow-300 text-lg">Assista a partir de 1.500 Kz/mês</p>
+                <p className="text-yellow-300 text-lg">Assista grtuitamente até Dezembro de 2025</p>
                 {!isLoggedIn ? (
                   <button className="mt-4 bg-yellow-400 text-black px-6 py-2 rounded hover:bg-yellow-300" onClick={() => setShowLogin(true)}>Assinar Agora</button>
                 ) : (
