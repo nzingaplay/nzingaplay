@@ -78,7 +78,6 @@ export default function NzingaPlay() {
       </header>
 
       <main className="p-6 flex">
-        {/* Sidebar de categorias */}
         {isLoggedIn && (
           <aside className="w-48 mr-6">
             <h3 className="text-lg font-bold mb-2">Categorias</h3>
@@ -119,25 +118,25 @@ export default function NzingaPlay() {
                     <div className="aspect-video bg-black flex items-center justify-center">
                       <Play className="w-8 h-8 text-yellow-400" />
                     </div>
-                    <p className="p-2 font-semibold text-yellow-300">Nzinga - A Rainha Guerreia</p>
+                    <p className="p-2 font-semibold text-yellow-300">A JAMAIKANA</p>
                   </div>
                 </div>
               </div>
 
               {showPlayer && (
                 <div className="bg-yellow-900 p-6 rounded max-w-3xl mx-auto mt-10">
-                  <h2 className="text-2xl font-bold mb-4">Nzinga - A Rainha Guerreira</h2>
+                  <h2 className="text-2xl font-bold mb-4">A JAMAIKANA</h2>
                   <div className="aspect-video bg-black mb-4 flex items-center justify-center">
                     <iframe
                       className="w-full h-full"
                       src="https://www.youtube.com/embed/bbYewQX9kBE"
-                      title="Nzinga - Filme"
+                      title="A JAMAIKANA"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
                   </div>
-                  <p className="mb-4 text-yellow-300">Sinopse do filme: A história da lendária rainha Nzinga que enfrentou colonizadores com coragem e astúcia.</p>
+                  <p className="mb-4 text-yellow-300">Realizado por Khristall Afrika. Produção de Yannick Matos e Leandro Priston. Técnica: Boy Gui. Ano 2021.</p>
                   <button className="bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-300" onClick={() => setShowPlayer(false)}>Fechar</button>
                 </div>
               )}
