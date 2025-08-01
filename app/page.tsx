@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { initializeApp } from 'firebase/app';
@@ -25,6 +25,12 @@ export default function NzingaPlay() {
   const [showAuthAlert, setShowAuthAlert] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
@@ -59,8 +65,16 @@ export default function NzingaPlay() {
     'Ação', 'Comédia', 'Romance', 'Biografia', 'Ficção Científica', 'Suspense', 'Terror', 'Documentários'
   ];
 
+  if (showSplash) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-yellow-400" style={{ fontFamily: 'Times New Roman, serif' }}>
+        <h1 className="text-5xl font-bold animate-pulse">NZINGAPLAY</h1>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-black text-yellow-400" style={{ fontFamily: 'Comic Sans MS, Comic Sans, cursive' }}>
+    <div className="min-h-screen bg-black text-yellow-400" style={{ fontFamily: 'Times New Roman, serif' }}>
       <header className="p-4 flex flex-col md:flex-row md:justify-between md:items-center border-b border-yellow-600 space-y-2 md:space-y-0">
         <h1 className="text-3xl font-bold">NZINGAPLAY</h1>
         <nav className="flex space-x-4">
