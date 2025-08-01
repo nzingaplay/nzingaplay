@@ -74,7 +74,13 @@ export default function NzingaPlay() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-yellow-400" style={{ fontFamily: 'Times New Roman, serif' }}>
+    <div
+      className="min-h-screen bg-black text-yellow-400 bg-cover bg-center"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("/playfundo.jpg")',
+        fontFamily: 'Times New Roman, serif'
+      }}
+    >
       <header className="p-4 flex flex-col md:flex-row md:justify-between md:items-center border-b border-yellow-600 space-y-2 md:space-y-0">
         <h1 className="text-3xl font-bold">NZINGAPLAY</h1>
         <nav className="flex space-x-4">
