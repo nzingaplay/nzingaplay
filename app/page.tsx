@@ -84,9 +84,9 @@ export default function NzingaPlay() {
       <header className="p-4 flex flex-col md:flex-row md:justify-between md:items-center border-b border-yellow-600 space-y-2 md:space-y-0">
         <h1 className="text-3xl font-bold">NZINGAPLAY</h1>
         <nav className="flex space-x-4">
-          <button className="hover:underline" onClick={() => handleNav('home')}>Página Inicial</button>
-          <button className="hover:underline" onClick={() => handleNav('contactos')}>Contactos</button>
-          <button className="hover:underline" onClick={() => handleNav('ajuda')}>Ajuda</button>
+          <button className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-full shadow-md transition-transform active:scale-95" onClick={() => handleNav('home')}>Página Inicial</button>
+          <button className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-full shadow-md transition-transform active:scale-95" onClick={() => handleNav('contactos')}>Contactos</button>
+          <button className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-full shadow-md transition-transform active:scale-95" onClick={() => handleNav('ajuda')}>Ajuda</button>
         </nav>
         <div className="flex space-x-4">
           {!isLoggedIn ? (
