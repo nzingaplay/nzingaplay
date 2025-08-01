@@ -1,4 +1,4 @@
-~'use client';
+'use client';
 import React, { useState } from 'react';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -115,27 +115,29 @@ export default function NzingaPlay() {
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Filmes Angolanos</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="bg-yellow-900 rounded overflow-hidden cursor-pointer" onClick={handlePlayClick}>
-                      <div className="aspect-video bg-black flex items-center justify-center">
-                        <Play className="w-8 h-8 text-yellow-400" />
-                      </div>
-                      <p className="p-2 font-semibold text-yellow-300">Filme Angolano #{i}</p>
+                  <div className="bg-yellow-900 rounded overflow-hidden cursor-pointer" onClick={handlePlayClick}>
+                    <div className="aspect-video bg-black flex items-center justify-center">
+                      <Play className="w-8 h-8 text-yellow-400" />
                     </div>
-                  ))}
+                    <p className="p-2 font-semibold text-yellow-300">Nzinga - A Rainha Guerreia</p>
+                  </div>
                 </div>
               </div>
 
               {showPlayer && (
                 <div className="bg-yellow-900 p-6 rounded max-w-3xl mx-auto mt-10">
-                  <h2 className="text-2xl font-bold mb-4">Título do Filme</h2>
+                  <h2 className="text-2xl font-bold mb-4">Nzinga - A Rainha Guerreira</h2>
                   <div className="aspect-video bg-black mb-4 flex items-center justify-center">
-                    <video controls className="w-full h-full">
-                      <source src="/filme.mp4" type="video/mp4" />
-                      Seu navegador não suporta vídeo.
-                    </video>
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/bbYewQX9kBE"
+                      title="Nzinga - Filme"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
                   </div>
-                  <p className="mb-4 text-yellow-300">Sinopse do filme: Um retrato intenso da juventude angolana em busca de identidade e mudança.</p>
+                  <p className="mb-4 text-yellow-300">Sinopse do filme: A história da lendária rainha Nzinga que enfrentou colonizadores com coragem e astúcia.</p>
                   <button className="bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-300" onClick={() => setShowPlayer(false)}>Fechar</button>
                 </div>
               )}
